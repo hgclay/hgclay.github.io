@@ -124,6 +124,13 @@ export const experience: ExperienceProject[] = [
 // Case study (deep dive)
 // ---------------------------------------------------------------------------
 
+export interface CaseStudyScreenshot {
+  module: string
+  image: string
+  alt: string
+  caption: string
+}
+
 export interface CaseStudy {
   slug: string
   title: string
@@ -131,6 +138,9 @@ export interface CaseStudy {
   tagline: string
   tags: string[]
   overview: string[]
+  screenshotsIntro: string
+  screenshots: CaseStudyScreenshot[]
+  screenshotsBridge: string
   myRole: string[]
   technicalHighlights: string[]
   challenges: string[]
@@ -160,6 +170,42 @@ export const caseStudies: CaseStudy[] = [
       'Jeppesen Aviator is Boeing/Jeppesen’s all-in-one Electronic Flight Bag (EFB) app, giving pilots centralized access to flight briefings, weather data, navigation charts, performance calculations, document management, and other flight-planning tools through one streamlined interface.',
       'I worked as an iOS engineer on the Aviator product team within Boeing’s Jeppesen aviation division, contributing to a complex aviation app used in real-world pilot workflows. My day-to-day work involved close collaboration with QA, UI/UX designers, product managers, backend developers, and other iOS engineers to deliver reliable features in a data-heavy, safety-conscious mobile environment.',
     ],
+    screenshotsIntro:
+      'Jeppesen Aviator brings multiple pilot workflows into a single Electronic Flight Bag experience. The screenshots below highlight several core modules of the app and show the type of data-heavy, operationally focused mobile workflows I worked within as an iOS engineer on the Aviator team.',
+    screenshots: [
+      {
+        module: 'Dashboard',
+        image: '/images/aviator/aviator-dashboard.webp',
+        alt: 'Aviator dashboard module showing the central landing area for key flight information',
+        caption: 'Central landing area for accessing key flight information and core app workflows.',
+      },
+      {
+        module: 'Briefing',
+        image: '/images/aviator/aviator-briefing.webp',
+        alt: 'Aviator briefing module showing flight briefing and operational flight content',
+        caption: 'Supports flight briefing workflows and access to operational flight content.',
+      },
+      {
+        module: 'NavLog',
+        image: '/images/aviator/aviator-navlog.webp',
+        alt: 'Aviator NavLog module showing navigation log and flight operational data',
+        caption: 'Presents navigation log information and flight-related operational data in a mobile-friendly format.',
+      },
+      {
+        module: 'Documents',
+        image: '/images/aviator/aviator-documents.webp',
+        alt: 'Aviator documents module showing flight documents and reference materials',
+        caption: 'Provides access to flight documents, reference materials, and supporting content.',
+      },
+      {
+        module: 'Tools',
+        image: '/images/aviator/aviator-tools.webp',
+        alt: 'Aviator tools module showing additional pilot utilities',
+        caption: 'Contains additional pilot utilities and workflow support features.',
+      },
+    ],
+    screenshotsBridge:
+      'These modules illustrate the kind of complex, data-driven mobile workflows I supported: features that required clear UI, reliable data handling, real-device testing, and close collaboration across iOS, QA, backend/systems, product, and design.',
     myRole: [
       'Worked as an iOS engineer on Jeppesen Aviator, contributing features, fixes, and maintenance across a complex aviation app used in real pilot workflows.',
       'Developed iOS functionality in Swift, SwiftUI, and UIKit within an established production app.',

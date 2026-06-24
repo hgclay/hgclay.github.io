@@ -46,6 +46,33 @@ export default function CaseStudy() {
         </div>
       </section>
 
+      <section className="mt-14">
+        <h2 className="text-xl text-ink-50">Inside Aviator</h2>
+        <p className="mt-4 text-sm leading-relaxed text-ink-200">{caseStudy.screenshotsIntro}</p>
+
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {caseStudy.screenshots.map((screenshot) => (
+            <figure
+              key={screenshot.module}
+              className="overflow-hidden rounded-xl border border-ink-700 bg-ink-900/60"
+            >
+              <img
+                src={screenshot.image}
+                alt={screenshot.alt}
+                loading="lazy"
+                className="aspect-[3/4] w-full object-cover"
+              />
+              <figcaption className="p-4">
+                <p className="coord-label text-route-400">{screenshot.module}</p>
+                <p className="mt-1 text-sm leading-relaxed text-ink-200">{screenshot.caption}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <p className="mt-6 text-sm leading-relaxed text-ink-200">{caseStudy.screenshotsBridge}</p>
+      </section>
+
       {BULLET_SECTIONS.map(({ heading, key }) => (
         <section key={key} className="mt-12">
           <h2 className="text-xl text-ink-50">{heading}</h2>
