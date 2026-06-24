@@ -4,12 +4,11 @@ import SkillBadge from '../components/SkillBadge'
 import useDocumentMeta from '../hooks/useDocumentMeta'
 import NotFound from './NotFound'
 
-const BULLET_SECTIONS: { heading: string; key: 'myRole' | 'technicalHighlights' | 'challenges' | 'impact' | 'relevance' }[] = [
+const BULLET_SECTIONS: { heading: string; key: 'myRole' | 'technicalHighlights' | 'challenges' | 'impact' }[] = [
   { heading: 'My Role', key: 'myRole' },
   { heading: 'Technical Highlights', key: 'technicalHighlights' },
   { heading: 'Challenges', key: 'challenges' },
   { heading: 'Impact', key: 'impact' },
-  { heading: 'Relevance to Digital Health / Regulated Software Roles', key: 'relevance' },
 ]
 
 export default function CaseStudy() {
@@ -18,7 +17,7 @@ export default function CaseStudy() {
 
   useDocumentMeta(
     caseStudy ? `${caseStudy.title} — Case Study — Hannah Clay` : 'Case study not found — Hannah Clay',
-    caseStudy?.tagline ?? 'This case study could not be found.',
+    caseStudy ? caseStudy.tagline || caseStudy.title : 'This case study could not be found.',
   )
 
   if (!caseStudy) return <NotFound />
