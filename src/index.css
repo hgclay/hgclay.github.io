@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+
+  --color-ink-950: #0a0e14;
+  --color-ink-900: #10151d;
+  --color-ink-800: #161c27;
+  --color-ink-700: #212a38;
+  --color-ink-600: #3a4759;
+  --color-ink-400: #8893a3;
+  --color-ink-200: #cdd3dc;
+  --color-ink-100: #e8ebef;
+  --color-ink-50: #f6f7f9;
+
+  --color-route-500: #ff4d8d;
+  --color-route-400: #ff84b3;
+  --color-route-600: #d6346f;
+
+  --color-amber-500: #f0a93b;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-ink-200 font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-ink-50 font-semibold tracking-tight;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-route-400;
+  }
+}
+
+@layer utilities {
+  /* Faint lat/long style grid used as a section backdrop. */
+  .grid-overlay {
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--color-ink-200) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--color-ink-200) 6%, transparent) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .coord-label {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-route-400;
+  }
+}
