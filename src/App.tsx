@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Home from './pages/Home'
+import CaseStudy from './pages/CaseStudy'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <main id="main" className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/case-study/:slug" element={<CaseStudy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

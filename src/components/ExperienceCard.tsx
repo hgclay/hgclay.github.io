@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import type { ExperienceProject } from '../data/portfolioData'
 import SkillBadge from './SkillBadge'
 
@@ -24,6 +25,15 @@ export default function ExperienceCard({ project }: { project: ExperienceProject
           <SkillBadge key={skill} label={skill} />
         ))}
       </div>
+
+      {project.caseStudySlug && (
+        <Link
+          to={`/case-study/${project.caseStudySlug}`}
+          className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-route-400 hover:text-route-300"
+        >
+          Read full case study →
+        </Link>
+      )}
     </article>
   )
 }

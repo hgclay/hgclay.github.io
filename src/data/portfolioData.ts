@@ -65,6 +65,7 @@ export interface ExperienceProject {
   summary: string
   bullets: string[]
   skills: string[]
+  caseStudySlug?: string
 }
 
 export const experience: ExperienceProject[] = [
@@ -91,6 +92,7 @@ export const experience: ExperienceProject[] = [
       'Helped connect user-facing mobile workflows to underlying aviation data/charting systems',
     ],
     skills: ['Swift', 'SwiftUI', 'UIKit', 'Objective-C', 'C++ integration', 'iOS', 'Aviation software'],
+    caseStudySlug: 'jeppesen-aviator',
   },
   {
     title: 'Weather Data Caching & Rendering Modernization',
@@ -115,6 +117,81 @@ export const experience: ExperienceProject[] = [
       'Helped make hard-to-debug system behavior easier to trace',
     ],
     skills: ['XML', 'Debugging', 'Observability', 'Logging', 'Validation', 'Maintainability'],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Case study (deep dive)
+// ---------------------------------------------------------------------------
+
+export interface CaseStudy {
+  slug: string
+  title: string
+  org: string
+  tagline: string
+  tags: string[]
+  overview: string[]
+  myRole: string[]
+  technicalHighlights: string[]
+  challenges: string[]
+  impact: string[]
+  relevance: string[]
+}
+
+export const caseStudies: CaseStudy[] = [
+  {
+    slug: 'jeppesen-aviator',
+    title: 'Jeppesen Aviator — Electronic Flight Bag',
+    org: 'Boeing / Jeppesen',
+    // TODO: no longer rendered on the case-study page (only used as the meta description) — consider replacing with new wording.
+    tagline: 'iOS engineering on a safety-sensitive aviation EFB app.',
+    tags: [
+      'Swift',
+      'SwiftUI',
+      'UIKit',
+      'Objective-C',
+      'C++',
+      'EFB',
+      'Aviation',
+      'Data-Heavy Apps',
+      'Mapping',
+      'Weather',
+      'Reliability',
+      'Existing Codebase',
+    ],
+    overview: [
+      'Jeppesen Aviator is Boeing/Jeppesen’s all-in-one Electronic Flight Bag (EFB) app, giving pilots centralized access to flight briefings, weather data, navigation charts, performance calculations, document management, and other flight-planning tools through one streamlined interface.',
+      'I worked as an iOS engineer on the Aviator product team within Boeing’s Jeppesen aviation division. The team itself was small and tight-knit rather than a sprawling enterprise org — a handful of iOS, backend, QA, and product people who worked closely together on a shared, long-running codebase.',
+    ],
+    myRole: [
+      'Contributed iOS features and fixes across the Aviator app, working in Swift, SwiftUI, and UIKit alongside existing Objective-C and C++ components.',
+      'Worked inside a long-lived, data-heavy production codebase shared with other engineers rather than building features in isolation.',
+      'Partnered closely with backend/systems engineers, QA, and product stakeholders to ship pilot-facing functionality.',
+      'Helped connect mobile UI workflows to the app’s underlying mapping, weather, and flight-data systems.',
+    ],
+    technicalHighlights: [
+      'Built and refined mobile UI for data-heavy workflows, including charting, weather display, routing/search, and flight-related data views.',
+      'Helped bridge native iOS code with lower-level C++ libraries powering the app’s geospatial and charting engine.',
+      'Contributed to reliability and performance improvements in an existing, safety-sensitive aviation codebase.',
+      'Diagnosed and fixed behavior that only reproduced on real devices, given the app’s dependence on live flight, weather, and mapping data.',
+    ],
+    challenges: [
+      'Aviator is regulated, safety-sensitive aviation software — changes had to be validated carefully, with little tolerance for regressions in pilot-facing data.',
+      'The codebase predated most of the team, so a meaningful part of the work was understanding existing systems and constraints before extending them.',
+      'Reliability issues such as timing, stale data, and device-specific behavior often only surfaced under real-world conditions rather than in a simulator.',
+      'Most features touched multiple layers of the system, which made close coordination across iOS, backend, and QA a constant requirement rather than an occasional one.',
+    ],
+    impact: [
+      'Contributed to a production EFB app used by airline pilots, where reliability and correctness have a direct line to real-world flight operations.',
+      'Helped improve the maintainability and reliability of existing, business-critical mobile workflows.',
+      'Built experience shipping iOS features in a regulated, high-stakes environment with real device and real-data constraints.',
+    ],
+    relevance: [
+      'Aviation EFB software and digital health apps share core constraints: safety-sensitive data, regulated environments, and little tolerance for silent failures.',
+      'Experience working inside an existing, data-heavy mobile codebase translates directly to extending established platforms rather than greenfield work.',
+      'Comfort with cross-functional collaboration across iOS, backend, and QA mirrors how regulated software teams typically have to operate.',
+      'Background bridging native mobile UI with lower-level systems is directly relevant to health apps that integrate with devices, sensors, or external data feeds.',
+    ],
   },
 ]
 
